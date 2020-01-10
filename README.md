@@ -14,13 +14,13 @@ const ws = new WebSocket('ws://localhost:8080');
 
 webSocketでのテストデータ(JSON形式)を送信します。
 
-<img src="./images/page.png" width="300">
+<img src="./images/page.png" width="300" style="border: solid 1px #000">
 
 ### ● アニメーション起動
 
 アニメーション起動用のデータを送信します。
 
-<img src="./images/button_1.png" width="300">
+<img src="./images/button_1.png" width="300" style="border: solid 1px #000">
 
 - データ形式
 
@@ -48,7 +48,7 @@ webSocketでのテストデータ(JSON形式)を送信します。
 アニメーション起動時のメッセージを送信します。<br />
 テキストエリアにメッセージを入力してください。
 
-<img src="./images/button_2.png" width="300">
+<img src="./images/button_2.png" width="300" style="border: solid 1px #000">
 
 - データ形式
 
