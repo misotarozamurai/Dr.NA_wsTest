@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dr.NA_front 送信テスト</title>
+</head>
+<body>
+    <header>
+        <h1>webSocket テストデータ送信</h1>
+    </header>
+
+    <main>
+        <button type="button" onclick="startSend()">送信</button>
+        <input type="text" id="data">
+        <button onclick="dataSend()">データ送信</button>
+        <button onclick="endSend()">終了</button>
+    </main>
+    
+</body>
+<script>
+    'use strict'
+    const ws = new WebSocket('ws://localhost:8080');
+
+    // 接続がされた場合
+    ws.onopen = evt => console.log('webSocket open!');
+    // エラーが発生した場合
+    ws.onerror = err => console.error('webSocket onerror ERR: ', err);
+    // メッセージを受信した場合
+    ws.onmessage = evt => {
+        console.log('webSocket onmessage()');
+        console.log(evt.data);
+    }
+
+    // アニメーション起動
+    const startSend = () => {
+        const _send = {
+            "type": "result",
+            "pulse": {
+                "avg": 65,
+                "datas":[
+                    80,
+                    75,
+                    78,
+                    73,
+                    76,
+                    68,
+                    66,
+                    67,
+                    68,
+                    75
+                ]
+            },
+            "height": 175,
+            "sick": {
+                "name": "糖尿病",
+                "place": 1,
+                "message": "糖尿病は、血糖値を下げるホルモンであるインスリンがすい臓から出にくくなることや、肥満が原因でインスリンが効きにくくなることにより、血液中の糖が多い高血糖の状態が続き、知らぬ間に全身の血管が傷ついていく病気です。目や腎臓は細い血管が多いため症状が現れやすく、また、足の神経障害も現れやすくなります。"
+            }
+        };
+
+        ws.send(JSON.stringify(_send));
+    }
+
+    // 起動時のメッセージ送信
+    const dataSend = () => {
+        const _send = {
+            "type": "message",
+            "message": document.getElementById('data').value
+        }
+
+        ws.send(JSON.stringify(_send));
+    }
+
+    // アニメーション終了
+    const endSend = () => {
+        const _send = {
+            "type": "Animation END",
+            "message": "End of diagnosis"
+        }
+
+        ws.send(JSON.stringify(_send));
+    }
+</script>
+</html>
