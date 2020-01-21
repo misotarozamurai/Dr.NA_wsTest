@@ -1,0 +1,23 @@
+{
+  "name": "Dr.NA_wsTest",
+  "version": "1.0.0",
+  "description": "name : Masakatsu Shibata",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misotarozamurai/Dr.NA_wsTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misotarozamurai/Dr.NA_wsTest/issues"
+  },
+  "homepage": "https://github.com/misotarozamurai/Dr.NA_wsTest#readme",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}
